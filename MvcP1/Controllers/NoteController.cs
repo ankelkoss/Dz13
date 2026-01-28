@@ -93,8 +93,15 @@ namespace MvcP1.Controllers
             {
                 try
                 {
-                    noteModel.Tags = ParseTags(tagsText);
-                    _context.Update(noteModel);
+                    var entity = await _context.Notes.FindAsync(id);
+                    if (entity == null) 
+                        return NotFound();
+
+                    entity.Name = noteModel.Name;
+                    entity.Text = noteModel.Text;
+                    entity.Tags = ParseTags(tagsText);
+
+                    _context.Update(entity);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
