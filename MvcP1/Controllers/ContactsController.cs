@@ -92,7 +92,17 @@ namespace MvcP1.Controllers
             {
                 try
                 {
-                    _context.Update(contactsModel);
+                    var entity = await _context.Contacts.FindAsync(id);
+                    if (entity == null)
+                        return NotFound();
+
+                    entity.Name = contactsModel.Name;
+                    entity.Phone = contactsModel.Phone;
+                    entity.PhoneAlt = contactsModel.PhoneAlt;
+                    entity.Email = contactsModel.Email;
+                    entity.DescShort = contactsModel.DescShort;
+
+                    _context.Update(entity);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
