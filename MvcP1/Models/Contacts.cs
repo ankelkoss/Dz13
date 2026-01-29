@@ -1,6 +1,6 @@
 ﻿namespace MvcP1.Models
 {
-    public class ContactsModel : BaseModel
+    public class Contacts : Base
     {
         public string Name { get; set; } = null!;
         public string Phone { get; set; } = null!;

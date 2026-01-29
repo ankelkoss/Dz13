@@ -1,6 +1,6 @@
 ﻿namespace MvcP1.Models
 {
-    public class BaseModel
+    public class Base
     {
         public int Id { get; set; }
         public DateTime CreatedAt { get; set; }
