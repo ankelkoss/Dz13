@@ -49,7 +49,7 @@ namespace MvcP1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(NoteModel noteModel, string tagsText)
+        public async Task<IActionResult> Create(Note noteModel, string tagsText)
         {
             noteModel.Tags = ParseTags(tagsText);
 
@@ -82,7 +82,7 @@ namespace MvcP1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, NoteModel noteModel, string tagsText)
+        public async Task<IActionResult> Edit(int id, Note noteModel, string tagsText)
         {
             if (id != noteModel.Id)
             {

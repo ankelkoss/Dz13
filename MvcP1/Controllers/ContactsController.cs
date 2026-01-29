@@ -49,7 +49,7 @@ namespace MvcP1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Name,Phone,PhoneAlt,Email,DescShort,Id,CreatedAt,UpdatedAt")] ContactsModel contactsModel)
+        public async Task<IActionResult> Create([Bind("Name,Phone,PhoneAlt,Email,DescShort,Id,CreatedAt,UpdatedAt")] Contacts contactsModel)
         {
             if (ModelState.IsValid)
             {
@@ -81,7 +81,7 @@ namespace MvcP1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Name,Phone,PhoneAlt,Email,DescShort,Id,CreatedAt,UpdatedAt")] ContactsModel contactsModel)
+        public async Task<IActionResult> Edit(int id, [Bind("Name,Phone,PhoneAlt,Email,DescShort,Id,CreatedAt,UpdatedAt")] Contacts contactsModel)
         {
             if (id != contactsModel.Id)
             {
